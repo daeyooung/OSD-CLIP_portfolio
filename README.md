@@ -10,8 +10,6 @@ few-shot open-set 결함 인식 방법의 PyTorch 구현과 MVTec AC 실험 결�
   정상 영역 패치는 M 개의 unknown prompt 로 학습. 추론은 패치 단위 softmax 의 평균(MSP)으로 known 분류와 unknown 탐지를 동시에 수행
 - **재현성**: seed 고정(few-shot 샘플·프롬프트 초기화·정상 영역 샘플링), 모델 선택 없이 **마지막 epoch 프롬프트로 평가**,
   모든 하이퍼파라미터는 [`configs/`](configs) 와 [`train_eval.sh`](train_eval.sh) 에 고정.
-  같은 GPU(RTX 5090, torch 2.9.1+cu128)에서 이 코드로 다시 학습하면 논문 실험과 100 epoch 전체 학습 손실 및 최종 지표가
-  소수점까지 동일하게 재현됨을 확인했습니다(carpet, seed 0). 다른 GPU·CUDA 버전에서는 부동소수점 연산 차이로 수치가 소폭 달라질 수 있습니다.
 
 ## 결과 (MVTec AC, 64 시나리오 × seed 0/1/2 = 192 run, 평균 ± seed 표준편차)
 
