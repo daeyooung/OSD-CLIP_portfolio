@@ -80,10 +80,10 @@ mkdir -p checkpoints && mv clip_l14_grit20m_fultune_2xe.pth checkpoints/
 
 저장소 루트에 아래 두 가지를 둡니다 (심볼릭 링크 가능). 용량 문제로 저장소에는 포함하지 않았습니다.
 
-1. **MVTec AC** ([공식 페이지](https://www.mvtec.com/company/research/datasets/mvtec-ad)) → `Dataset/mvtec_ac/<category>/test/<class>/*.png`
-   (`mvtec_ac_pkl/` 의 분할 파일이 이 경로를 참조)
+1. **MVTec AC** ([VELM](https://github.com/Sassanmtr/VELM) 에서 배포, MVTec AD 테스트 이미지를 결함 분류용으로 재정리한 데이터셋) → `Dataset/mvtec_ac/<category>/test/<class>/*.png`
 2. **softmask** (PatchCore anomaly map, `.npy` 0~1) → `alphaclip_softmask_method3_robust_0.5_blur/alphaclip_masks_method3_robust_blur_ac_<category>/<class>/softmask/<image>.npy`
-   사전 계산본(약 670MB): **(링크 추가 예정)**. 직접 만들려면 MVTec AC 원본의 `train/good` 과
+   `tools/softmask/make_softmask.py` 로 생성합니다. MVTec AD 원본([공식 페이지](https://www.mvtec.com/company/research/datasets/mvtec-ad))의
+   `train/good` 정상 이미지(MVTec AC 는 MVTec AD 와 같은 학습 이미지를 쓰며 배포본에는 포함되지 않음)와
    [patchcore-inspection](https://github.com/amazon-science/patchcore-inspection) 이 필요합니다.
 
    ```bash
