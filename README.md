@@ -9,7 +9,9 @@ few-shot open-set 결함 인식 방법의 PyTorch 구현과 MVTec AC 실험 결�
   PatchCore anomaly map(softmask)으로 결함 영역을 잘라 Alpha-CLIP 의 alpha 채널로 주고, 결함 패치는 known prompt 로,
   정상 영역 패치는 M 개의 unknown prompt 로 학습. 추론은 패치 단위 softmax 의 평균(MSP)으로 known 분류와 unknown 탐지를 동시에 수행
 - **재현성**: seed 고정(few-shot 샘플·프롬프트 초기화·정상 영역 샘플링), 모델 선택 없이 **마지막 epoch 프롬프트로 평가**,
-  모든 하이퍼파라미터는 [`configs/`](configs) 와 [`train_eval.sh`](train_eval.sh) 에 고정
+  모든 하이퍼파라미터는 [`configs/`](configs) 와 [`train_eval.sh`](train_eval.sh) 에 고정.
+  같은 GPU(RTX 5090, torch 2.9.1+cu128)에서 이 코드로 다시 학습하면 논문 실험과 100 epoch 전체 학습 손실 및 최종 지표가
+  소수점까지 동일하게 재현됨을 확인했습니다(carpet, seed 0). 다른 GPU·CUDA 버전에서는 부동소수점 연산 차이로 수치가 소폭 달라질 수 있습니다.
 
 ## 결과 (MVTec AC, 64 시나리오 × seed 0/1/2 = 192 run, 평균 ± seed 표준편차)
 
@@ -22,7 +24,7 @@ few-shot open-set 결함 인식 방법의 PyTorch 구현과 MVTec AC 실험 결�
 Acc_Known = known 결함 분류 정확도, AUROC = known/unknown 구분, OSCR = 분류와 unknown 탐지를 함께 보는 open-set 지표.
 
 16-shot 카테고리별 결과와 baseline 비교(ARPL, PROSER, NAPG, Local-Prompt, UTL: 같은 Alpha-CLIP 백본·데이터 분할·few-shot 샘플)는
-[`results_summary/`](results_summary) 에 CSV 로 정리했습니다.
+[`results_summary/`](results_summary) 에 CSV 로 정리했습니다. baseline 방법의 코드는 이 저장소에 포함하지 않습니다.
 
 | 16-shot | Acc_Known | AUROC | OSCR |
 |---|:---:|:---:|:---:|

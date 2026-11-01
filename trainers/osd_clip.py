@@ -341,10 +341,16 @@ class OSDCLIP(TrainerX):
         print(f"[OSD-CLIP] normal-region crops: {len(self.normal_crops)} (images x {NUM_NORMAL_VIEWS}, "
               f"roi={mc.NORMAL_CROP_ROI_SIZE}px)")
 
+    def _shuffled_pool(self):
+        # 원본 실험 코드와 같은 난수 소비(list + random.shuffle). random.sample 로 바꾸면 같은 seed 에서도 순서가 달라진다.
+        idx = list(range(len(self.normal_crops)))
+        random.shuffle(idx)
+        return idx
+
     def _sample_normal_crops(self, B):
         """epoch 마다 풀을 셔플해 순서대로 B 개씩 꺼낸다 (소스 이미지 GT label 함께 반환)."""
         if self._pool_epoch != self.epoch:
-            self._pool_queue = random.sample(range(len(self.normal_crops)), len(self.normal_crops))
+            self._pool_queue = self._shuffled_pool()
             self._pool_epoch = self.epoch
         picked = []
         while len(picked) < B:
@@ -352,7 +358,7 @@ class OSDCLIP(TrainerX):
             picked += self._pool_queue[:need]
             self._pool_queue = self._pool_queue[need:]
             if not self._pool_queue:
-                self._pool_queue = random.sample(range(len(self.normal_crops)), len(self.normal_crops))
+                self._pool_queue = self._shuffled_pool()
         crops = torch.stack([self.normal_crops[i] for i in picked]).to(self.device)
         labels = torch.tensor([self.normal_labels[i] for i in picked], dtype=torch.long, device=self.device)
         return crops, labels

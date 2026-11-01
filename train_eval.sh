@@ -6,14 +6,14 @@
 #   SEEDS="0 1 2" bash train_eval.sh                          # 논문과 같은 3 seed
 #   MODEL_SRC=/path/to/results bash train_eval.sh             # 학습 생략, 기존 체크포인트 재평가
 #
-# 환경변수: GPU_ID(0) EPOCHS(100) FEW_SHOT_K(16) SEEDS("0") PKL_FILTER ALPHA_CLIP_CKPT MODEL_SRC
+# 환경변수: GPU_ID(0) EPOCHS(100) FEW_SHOT_K(16) SEEDS("0") PKL_FILTER ALPHA_CLIP_CKPT MODEL_SRC SOFTMASK_ROOT SWEEP_TAG
 set -euo pipefail
 
 PROJ="$(cd "$(dirname "$0")"; pwd)"
 cd "${PROJ}"
 export PYTHONPATH="${PROJ}/Dassl.pytorch:${PROJ}:${PYTHONPATH:-}"   # 저장소에 포함된 Dassl 사용
 PKL_DIR="${PROJ}/mvtec_ac_pkl"
-SOFTMASK_ROOT="${PROJ}/alphaclip_softmask_method3_robust_0.5_blur"
+SOFTMASK_ROOT="${SOFTMASK_ROOT:-${PROJ}/alphaclip_softmask_method3_robust_0.5_blur}"
 TRAINER_CFG="configs/trainers/osd_clip_vit_l14.yaml"
 DATASET_CFG="configs/datasets/mvtec_pkl.yaml"
 

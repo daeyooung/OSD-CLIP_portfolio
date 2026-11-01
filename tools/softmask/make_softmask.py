@@ -11,11 +11,12 @@
 사용법:
   git clone https://github.com/amazon-science/patchcore-inspection external/patchcore-inspection
   pip install faiss-gpu   # 또는 faiss-cpu
-  python tools/softmask/make_softmask.py --dataset_root Dataset/mvtec_ac --gpu 0
+  python tools/softmask/make_softmask.py --dataset_root Dataset/mvtec_ac --train_root Dataset/mvtec_ad --gpu 0
   python tools/softmask/make_softmask.py --categories bottle carpet --single   # WideResNet50 단일 모델 (빠름)
 """
 import argparse
 import os
+import random
 import sys
 
 import cv2
@@ -150,7 +151,9 @@ def main():
     ap.add_argument("--gpu", type=int, default=0)
     ap.add_argument("--batch_size", type=int, default=8)
     ap.add_argument("--num_workers", type=int, default=4)
+    ap.add_argument("--seed", type=int, default=0, help="coreset 샘플링 등 난수 고정")
     args = ap.parse_args()
+    random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed); torch.cuda.manual_seed_all(args.seed)
 
     if not os.path.isdir(args.patchcore_src):
         sys.exit(f"patchcore-inspection 을 찾을 수 없습니다: {args.patchcore_src}\n"
@@ -161,7 +164,7 @@ def main():
 
     device = torch.device(f"cuda:{args.gpu}" if torch.cuda.is_available() else "cpu")
     categories = args.categories or sorted(d for d in os.listdir(args.dataset_root)
-                                           if os.path.isdir(os.path.join(args.dataset_root, d)) and d != "carpet_ad")
+                                           if os.path.isdir(os.path.join(args.dataset_root, d)))
     print(f"device={device}  categories={categories}  mode={'single' if args.single else 'ensemble'}")
     for c in categories:
         print(f"\n[{c}]")
