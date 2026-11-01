@@ -1,0 +1,16 @@
+ K  cfg          n      Acc_Known          AUROC           OSCR    (Δ, 쌍대 p, win%)
+ 1  bs16(best) 192  69.47 ± 3.91  67.51 ± 1.29  50.75 ± 2.18
+ 1  div0(best) 192  69.54 ± 4.73  68.05 ± 1.43  51.20 ± 2.39
+ 1  div0(last) 192  69.57 ± 4.51  68.10 ± 1.29  51.27 ± 2.43    vs bs16: Acc_Known +0.10 p=0.905 win31% | AUROC +0.59 p=0.086 win52% | OSCR +0.52 p=0.251 win50%
+                 div0 last−best: Acc_Known +0.03 p=0.896 win6% | AUROC +0.05 p=0.633 win18% | OSCR +0.08 p=0.526 win22%  (best==last 인 run 119/192)
+      카테고리 OSCR Δ(div0 last−bs16): bottle +0.5, cable +1.1, capsule +1.0, carpet -1.7, grid -0.2, hazelnut +1.5, leather +2.0, metal_nut -1.5, pill +0.0, screw +0.9, tile -0.7, transistor +1.6, wood +2.2, zipper +0.6
+ 4  bs16(best) 192  86.35 ± 1.24  76.97 ± 1.51  69.63 ± 1.83
+ 4  div0(best) 192  86.70 ± 0.95  78.03 ± 1.41  70.61 ± 1.87
+ 4  div0(last) 192  86.62 ± 0.95  78.03 ± 1.39  70.58 ± 1.87    vs bs16: Acc_Known +0.27 p=0.432 win23% | AUROC +1.06 p=0.025 win54% | OSCR +0.95 p=0.131 win54%
+                 div0 last−best: Acc_Known -0.08 p=0.027 win0% | AUROC +0.00 p=0.802 win14% | OSCR -0.03 p=0.665 win13%  (best==last 인 run 146/192)
+      카테고리 OSCR Δ(div0 last−bs16): bottle -1.4, cable +1.9, capsule -0.2, carpet +0.8, grid +1.2, hazelnut +0.2, leather -0.3, metal_nut -0.2, pill -0.4, screw -0.5, tile -0.1, transistor +3.4, wood +4.4, zipper +3.7
+16  bs16(best) 192  91.06 ± 0.23  82.18 ± 0.17  77.15 ± 0.07
+16  div0(best) 192  90.98 ± 0.34  82.15 ± 0.81  77.27 ± 0.81
+16  div0(last) 192  91.04 ± 0.33  82.16 ± 0.90  77.31 ± 0.89    vs bs16: Acc_Known -0.02 p=0.908 win19% | AUROC -0.03 p=0.854 win48% | OSCR +0.15 p=0.491 win48%
+                 div0 last−best: Acc_Known +0.06 p=0.068 win2% | AUROC +0.01 p=0.222 win20% | OSCR +0.04 p=0.033 win21%  (best==last 인 run 127/192)
+      카테고리 OSCR Δ(div0 last−bs16): bottle -1.5, cable +1.6, capsule +0.1, carpet -0.0, grid -2.4, hazelnut -0.1, leather -1.1, metal_nut -0.3, pill +1.2, screw +1.1, tile -0.2, transistor -0.3, wood +0.7, zipper +2.0

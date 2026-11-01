@@ -1,0 +1,228 @@
+
+===== 1-shot overall (3-seed mean ± std of seed means)
+OSD-CLIP        69.57±4.51   68.10±1.29   51.27±2.43
+ARPL            58.02±1.40   56.69±3.76   37.56±3.13
+PROSER          62.23±1.67   59.16±2.35   41.41±2.52
+PROSER-msp      62.23±1.67   59.04±2.18   41.60±2.54
+NAPG            59.22±2.30   52.80±0.97   33.95±0.99
+Local-Prompt    58.42±2.54   55.31±0.13   33.98±1.10
+LP-local        58.42±2.54   60.23±1.27   37.18±1.92
+UTL             65.34±1.79   59.68±1.14   43.62±2.19
+
+--- 1-shot per-category Acc_Known
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         78.64  71.93   65.42       65.42  54.34         75.04     75.04  72.90
+cable          78.10  45.46   48.58       48.58  48.60         44.16     44.16  51.84
+capsule        56.70  50.97   53.42       53.42  52.47         56.42     56.42  57.89
+carpet         64.02  68.03   73.29       73.29  69.77         57.74     57.74  78.17
+grid           42.36  45.09   44.24       44.24  43.39         50.64     50.64  54.94
+hazelnut       86.58  63.10   70.63       70.63  67.04         63.40     63.40  71.26
+leather        75.02  71.40   77.44       77.44  73.51         63.48     63.48  78.04
+metal_nut      82.21  64.77   79.28       79.28  76.58         67.45     67.45  69.70
+pill           43.43  33.29   35.16       35.16  34.60         31.74     31.74  38.18
+screw          59.37  50.56   55.45       55.45  51.19         49.31     49.31  57.16
+tile           89.19  64.82   81.57       81.57  78.72         73.20     73.20  83.61
+transistor     71.11  55.00   58.33       58.33  51.11         58.89     58.89  62.22
+wood           77.66  71.89   71.87       71.87  68.97         85.31     85.31  86.74
+zipper         77.15  75.16   73.99       73.99  70.56         64.73     64.73  71.12
+Average        70.11  59.39   63.48       63.48  60.06         60.11     60.11  66.70
+
+--- 1-shot per-category AUROC
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         53.11  52.32   54.65       54.64  50.70         57.61     55.62  55.67
+cable          76.13  60.28   56.95       56.83  53.98         49.91     64.75  57.59
+capsule        59.90  59.88   62.48       61.54  55.40         50.37     60.27  60.95
+carpet         63.00  61.49   70.54       71.10  56.92         48.14     54.21  65.77
+grid           54.60  51.05   47.46       47.48  49.62         48.61     57.67  51.60
+hazelnut       81.20  57.26   54.91       53.04  46.73         56.52     60.37  58.00
+leather        66.22  62.54   71.13       68.58  62.21         53.01     60.76  69.76
+metal_nut      76.90  57.77   76.73       76.33  62.64         45.01     58.89  61.26
+pill           57.46  53.39   51.21       51.41  49.77         50.19     47.39  50.91
+screw          60.80  53.74   52.04       51.12  47.15         50.37     56.51  48.70
+tile           77.58  58.69   69.32       70.18  51.05         74.22     67.39  74.23
+transistor     61.33  50.44   48.94       50.28  48.44         52.17     59.06  48.61
+wood           80.73  60.71   67.12       66.15  59.02         83.91     69.60  82.97
+zipper         78.79  52.48   49.21       51.85  46.17         58.26     69.17  52.17
+Average        67.70  56.57   59.48       59.32  52.84         55.59     60.12  59.87
+
+--- 1-shot per-category OSCR
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         43.20  41.62   39.92       39.93  24.52         46.44     42.29  42.55
+cable          61.99  32.26   30.36       31.14  27.87         23.81     30.80  33.97
+capsule        36.83  33.53   36.83       36.32  31.72         26.67     34.56  38.13
+carpet         44.66  50.17   58.55       59.22  45.95         29.42     34.31  55.13
+grid           27.00  25.76   24.30       24.43  24.19         22.96     31.21  30.39
+hazelnut       70.92  40.56   42.62       41.42  34.50         37.53     40.53  45.18
+leather        52.52  50.24   58.70       57.46  47.40         36.81     40.16  59.99
+metal_nut      63.61  44.31   63.52       63.62  50.34         27.15     42.36  49.03
+pill           28.31  19.24   20.18       20.42  17.44         15.49     15.02  22.73
+screw          40.74  33.72   33.38       32.82  28.68         25.47     30.05  32.11
+tile           73.29  44.46   60.53       61.22  42.36         59.22     54.83  65.01
+transistor     43.53  28.06   28.92       30.08  25.17         31.42     28.78  31.94
+wood           66.06  50.64   56.07       54.71  48.50         73.04     61.35  75.57
+zipper         63.73  42.33   39.98       42.76  34.12         35.57     45.63  40.93
+Average        51.17  38.35   42.42       42.54  34.48         35.07     37.99  44.48
+
+1-shot Acc_Known: OSD-CLIP rank per cat: bottle:1, cable:1, capsule:2, carpet:5, grid:6, hazelnut:1, leather:3, metal_nut:1, pill:1, screw:1, tile:1, transistor:1, wood:3, zipper:1
+   Ours−best baseline: bottle +3.6(Local-Prompt), cable +26.3(UTL), capsule -1.2(UTL), carpet -14.1(UTL), grid -12.6(UTL), hazelnut +15.3(UTL), leather -3.0(UTL), metal_nut +2.9(PROSER), pill +5.3(UTL), screw +2.2(UTL), tile +5.6(UTL), transistor +8.9(UTL), wood -9.1(UTL), zipper +2.0(ARPL)
+
+1-shot AUROC: OSD-CLIP rank per cat: bottle:4, cable:1, capsule:3, carpet:3, grid:1, hazelnut:1, leather:3, metal_nut:1, pill:1, screw:1, tile:1, transistor:1, wood:3, zipper:1
+   Ours−best baseline: bottle -4.5(Local-Prompt), cable +15.8(ARPL), capsule -2.6(PROSER), carpet -7.5(PROSER), grid +3.0(UTL), hazelnut +23.2(UTL), leather -4.9(PROSER), metal_nut +0.2(PROSER), pill +4.1(ARPL), screw +7.1(ARPL), tile +3.3(UTL), transistor +9.2(Local-Prompt), wood -3.2(Local-Prompt), zipper +20.5(Local-Prompt)
+
+1-shot OSCR: OSD-CLIP rank per cat: bottle:2, cable:1, capsule:3, carpet:5, grid:2, hazelnut:1, leather:3, metal_nut:1, pill:1, screw:1, tile:1, transistor:1, wood:3, zipper:1
+   Ours−best baseline: bottle -3.2(Local-Prompt), cable +28.0(UTL), capsule -1.3(UTL), carpet -13.9(PROSER), grid -3.4(UTL), hazelnut +25.7(UTL), leather -7.5(UTL), metal_nut +0.1(PROSER), pill +5.6(UTL), screw +7.0(ARPL), tile +8.3(UTL), transistor +11.6(UTL), wood -9.5(UTL), zipper +21.4(ARPL)
+
+===== 4-shot overall (3-seed mean ± std of seed means)
+OSD-CLIP        86.62±0.95   78.03±1.39   70.58±1.87
+ARPL            76.90±1.64   65.93±0.84   55.45±1.33
+PROSER          77.68±0.61   66.71±1.42   56.31±0.88
+PROSER-msp      77.68±0.61   66.47±1.03   56.46±0.59
+NAPG            71.83±0.49   59.41±5.04   45.30±4.22
+Local-Prompt    69.82±0.28   55.58±0.11   39.18±0.48
+LP-local        69.82±0.28   64.03±1.66   47.40±1.39
+UTL             79.22±0.60   68.02±0.16   58.47±0.37
+
+--- 4-shot per-category Acc_Known
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         91.05  83.18   84.34       84.34  65.78         75.00     75.00  84.82
+cable          93.90  70.16   74.19       74.19  64.60         57.06     57.06  73.37
+capsule        78.33  64.55   62.12       62.12  56.70         59.81     59.81  70.97
+carpet         84.22  88.94   84.92       84.92  84.45         74.80     74.80  88.64
+grid           73.76  67.06   69.58       69.58  61.27         62.33     62.33  71.94
+hazelnut       93.85  82.06   86.36       86.36  80.42         79.45     79.45  84.99
+leather        94.51  87.50   90.35       90.35  86.38         81.65     81.65  85.62
+metal_nut      89.41  84.44   86.70       86.70  81.48         78.78     78.78  84.96
+pill           73.64  52.66   49.65       49.65  44.89         42.76     42.76  56.29
+screw          79.98  71.27   66.31       66.31  62.08         57.72     57.72  73.77
+tile           94.08  88.53   92.20       92.20  88.93         89.80     89.80  93.65
+transistor     87.78  77.78   81.11       81.11  81.67         75.00     75.00  82.22
+wood           91.22  91.20   93.89       93.89  93.89         91.85     91.85  95.37
+zipper         88.11  81.76   79.01       79.01  66.50         69.78     69.78  76.86
+Average        86.70  77.94   78.62       78.62  72.79         71.13     71.13  80.25
+
+--- 4-shot per-category AUROC
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         63.87  61.96   57.24       57.32  55.79         57.98     63.36  57.82
+cable          81.12  64.13   63.79       64.02  63.44         49.90     60.72  67.83
+capsule        69.33  61.95   61.98       61.03  51.02         50.43     58.28  59.72
+carpet         80.54  71.19   75.41       75.43  63.88         48.25     61.10  73.40
+grid           61.30  62.97   63.51       62.99  51.66         48.54     60.86  59.30
+hazelnut       95.11  67.95   70.65       68.85  52.58         57.40     73.52  70.26
+leather        78.39  74.93   72.67       70.63  78.26         53.07     60.74  72.68
+metal_nut      84.17  76.11   80.54       81.01  56.66         46.33     68.97  74.07
+pill           68.81  53.41   54.71       53.63  51.48         50.51     52.77  58.16
+screw          63.28  50.40   57.89       55.49  48.50         50.85     61.83  48.67
+tile           89.12  84.76   86.05       86.10  78.74         74.83     73.70  89.09
+transistor     81.72  63.56   68.11       70.78  47.56         51.89     62.89  71.11
+wood           89.19  78.41   85.60       83.99  73.74         84.09     74.19  89.97
+zipper         84.81  54.52   42.19       45.47  52.55         58.33     69.35  60.40
+Average        77.91  66.16   67.17       66.91  58.99         55.89     64.45  68.03
+
+--- 4-shot per-category OSCR
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         56.66  54.10   51.03       51.07  37.19         44.10     50.75  51.21
+cable          78.24  50.84   51.92       52.61  43.85         29.05     41.01  55.84
+capsule        58.51  45.15   41.91       41.57  29.82         29.72     35.89  47.49
+carpet         70.80  66.67   69.07       69.47  56.69         33.72     46.69  69.70
+grid           49.61  46.47   48.30       47.32  33.89         28.70     40.26  45.27
+hazelnut       89.65  59.46   63.04       61.76  44.60         45.05     62.19  63.01
+leather        74.68  69.35   68.20       66.63  70.13         42.16     51.51  66.00
+metal_nut      76.36  67.40   71.66       72.88  47.49         34.24     56.34  64.71
+pill           54.75  31.57   32.24       31.89  25.40         19.58     21.54  37.83
+screw          57.61  40.70   40.75       40.02  31.17         30.45     39.23  40.31
+tile           86.98  78.05   82.21       82.06  71.34         69.50     69.16  84.59
+transistor     72.83  54.81   60.56       63.86  38.89         37.89     45.47  62.50
+wood           82.41  74.13   81.73       80.08  68.95         78.01     68.37  85.93
+zipper         76.42  47.75   37.02       40.43  36.27         39.24     48.70  51.32
+Average        70.39  56.18   57.12       57.26  45.41         40.10     48.37  58.98
+
+4-shot Acc_Known: OSD-CLIP rank per cat: bottle:1, cable:1, capsule:1, carpet:5, grid:1, hazelnut:1, leather:1, metal_nut:1, pill:1, screw:1, tile:1, transistor:1, wood:5, zipper:1
+   Ours−best baseline: bottle +6.2(UTL), cable +19.7(PROSER), capsule +7.4(UTL), carpet -4.7(ARPL), grid +1.8(UTL), hazelnut +7.5(PROSER), leather +4.2(PROSER), metal_nut +2.7(PROSER), pill +17.3(UTL), screw +6.2(UTL), tile +0.4(UTL), transistor +5.6(UTL), wood -4.1(UTL), zipper +6.4(ARPL)
+
+4-shot AUROC: OSD-CLIP rank per cat: bottle:1, cable:1, capsule:1, carpet:1, grid:3, hazelnut:1, leather:1, metal_nut:1, pill:1, screw:1, tile:1, transistor:1, wood:2, zipper:1
+   Ours−best baseline: bottle +1.9(ARPL), cable +13.3(UTL), capsule +7.4(PROSER), carpet +5.1(PROSER), grid -2.2(PROSER), hazelnut +24.5(PROSER), leather +0.1(NAPG), metal_nut +3.6(PROSER), pill +10.7(UTL), screw +5.4(PROSER), tile +0.0(UTL), transistor +10.6(UTL), wood -0.8(UTL), zipper +24.4(UTL)
+
+4-shot OSCR: OSD-CLIP rank per cat: bottle:1, cable:1, capsule:1, carpet:1, grid:1, hazelnut:1, leather:1, metal_nut:1, pill:1, screw:1, tile:1, transistor:1, wood:2, zipper:1
+   Ours−best baseline: bottle +2.6(ARPL), cable +22.4(UTL), capsule +11.0(UTL), carpet +1.1(UTL), grid +1.3(PROSER), hazelnut +26.6(PROSER), leather +4.6(NAPG), metal_nut +4.7(PROSER), pill +16.9(UTL), screw +16.9(PROSER), tile +2.4(UTL), transistor +10.3(UTL), wood -3.5(UTL), zipper +25.1(UTL)
+
+===== 16-shot overall (3-seed mean ± std of seed means)
+OSD-CLIP        91.04±0.33   82.16±0.90   77.31±0.89
+ARPL            83.28±0.09   70.04±0.17   62.15±0.24
+PROSER          84.09±0.27   70.82±0.14   63.47±0.02
+PROSER-msp      84.09±0.27   71.10±0.12   64.02±0.14
+NAPG            74.41±1.44   59.28±5.79   46.57±6.16
+Local-Prompt    76.83±1.84   55.92±0.23   42.57±1.08
+LP-local        76.83±1.84   68.68±3.03   55.68±3.19
+UTL             84.76±0.14   72.43±0.65   65.38±0.42
+
+--- 16-shot per-category Acc_Known
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         91.56  87.66   92.21       92.21  73.76         84.41     84.41  90.00
+cable          97.07  74.55   79.73       79.73  64.23         67.25     67.25  78.19
+capsule        88.18  83.95   85.44       85.44  75.89         72.73     72.73  83.55
+carpet         91.86  96.13   95.87       95.87  86.54         77.78     77.78  95.88
+grid           78.06  71.64   69.94       69.94  60.45         66.76     66.76  75.39
+hazelnut       96.13  85.68   85.96       85.96  82.74         85.29     85.29  87.96
+leather        97.35  93.18   93.20       93.20  90.17         84.37     84.37  92.79
+metal_nut      94.07  86.71   88.68       88.68  85.41         87.22     87.22  89.68
+pill           77.67  62.67   63.07       63.07  43.40         52.50     52.50  64.66
+screw          90.48  81.87   81.31       81.31  70.29         63.64     63.64  82.73
+tile           95.28  94.24   96.72       96.72  93.02         92.44     92.44  96.73
+transistor     91.11  80.00   80.56       80.56  80.56         80.00     80.00  81.67
+wood           94.21  94.51   93.02       93.02  92.62         90.51     90.51  94.77
+zipper         93.81  87.68   85.13       85.13  63.35         86.32     86.32  85.93
+Average        91.20  84.32   85.06       85.06  75.89         77.94     77.94  85.71
+
+--- 16-shot per-category AUROC
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         76.35  57.85   65.26       65.31  49.93         57.91     59.24  62.66
+cable          79.98  68.31   69.54       69.82  65.06         50.75     66.36  70.25
+capsule        78.12  72.64   76.83       75.58  49.78         50.76     63.94  70.11
+carpet         83.61  83.15   82.96       83.58  64.77         48.42     68.24  85.15
+grid           64.75  63.20   63.45       62.13  43.58         48.93     59.60  59.93
+hazelnut       94.83  71.88   63.43       63.72  60.41         57.33     75.94  67.82
+leather        83.73  77.32   76.01       75.11  73.60         53.14     67.48  72.68
+metal_nut      90.33  74.25   81.45       80.92  54.96         47.04     71.00  82.46
+pill           74.62  54.92   57.50       58.16  51.81         50.97     61.92  58.96
+screw          74.67  55.09   58.34       58.65  55.96         51.08     69.82  59.64
+tile           92.48  91.01   93.47       93.43  78.66         75.00     74.96  95.75
+transistor     81.44  61.72   62.11       62.94  48.28         52.50     69.72  65.44
+wood           89.37  91.92   87.47       87.27  77.05         84.31     78.21  92.01
+zipper         89.43  60.23   57.98       62.54  50.73         58.57     76.78  74.00
+Average        82.41  70.25   71.13       71.37  58.90         56.19     68.80  72.63
+
+--- 16-shot per-category OSCR
+            OSD-CLIP   ARPL  PROSER  PROSER-msp   NAPG  Local-Prompt  LP-local    UTL
+cat                                                                                  
+bottle         68.85  54.45   60.70       60.73  38.15         48.82     50.18  57.28
+cable          78.84  56.89   59.42       60.07  45.42         33.43     51.42  60.21
+capsule        72.71  62.95   67.73       67.47  38.00         36.55     49.08  62.45
+carpet         78.50  80.40   80.58       80.98  59.02         37.21     56.86  82.58
+grid           54.64  48.65   49.87       49.24  26.48         31.29     42.59  47.86
+hazelnut       91.10  63.95   57.18       58.32  51.64         47.21     67.95  62.48
+leather        82.33  74.58   73.48       72.91  68.34         43.50     58.12  70.23
+metal_nut      86.53  66.38   75.04       75.25  48.85         38.35     64.83  76.34
+pill           64.15  37.48   39.91       40.23  23.66         24.13     34.07  43.91
+screw          72.02  48.43   51.17       52.26  39.87         31.44     47.01  53.63
+tile           91.23  87.37   90.95       90.96  73.18         71.13     71.18  93.32
+transistor     74.72  55.72   57.31       57.36  41.81         39.19     54.78  58.50
+wood           84.62  87.51   83.20       83.23  71.42         76.79     72.47  87.19
+zipper         84.52  55.34   52.91       57.59  32.73         48.52     67.47  67.57
+Average        77.48  62.86   64.25       64.76  47.04         43.40     56.29  65.97
+
+16-shot Acc_Known: OSD-CLIP rank per cat: bottle:2, cable:1, capsule:1, carpet:4, grid:1, hazelnut:1, leather:1, metal_nut:1, pill:1, screw:1, tile:3, transistor:1, wood:3, zipper:1
+   Ours−best baseline: bottle -0.6(PROSER), cable +17.3(PROSER), capsule +2.7(PROSER), carpet -4.3(ARPL), grid +2.7(UTL), hazelnut +8.2(UTL), leather +4.2(PROSER), metal_nut +4.4(UTL), pill +13.0(UTL), screw +7.7(UTL), tile -1.4(UTL), transistor +9.4(UTL), wood -0.6(UTL), zipper +6.1(ARPL)
+
+16-shot AUROC: OSD-CLIP rank per cat: bottle:1, cable:1, capsule:1, carpet:2, grid:1, hazelnut:1, leather:1, metal_nut:1, pill:1, screw:1, tile:3, transistor:1, wood:3, zipper:1
+   Ours−best baseline: bottle +11.1(PROSER), cable +9.7(UTL), capsule +1.3(PROSER), carpet -1.5(UTL), grid +1.3(PROSER), hazelnut +23.0(ARPL), leather +6.4(ARPL), metal_nut +7.9(UTL), pill +15.7(UTL), screw +15.0(UTL), tile -3.3(UTL), transistor +16.0(UTL), wood -2.6(UTL), zipper +15.4(UTL)
+
+16-shot OSCR: OSD-CLIP rank per cat: bottle:1, cable:1, capsule:1, carpet:4, grid:1, hazelnut:1, leather:1, metal_nut:1, pill:1, screw:1, tile:2, transistor:1, wood:3, zipper:1
+   Ours−best baseline: bottle +8.1(PROSER), cable +18.6(UTL), capsule +5.0(PROSER), carpet -4.1(UTL), grid +4.8(PROSER), hazelnut +27.1(ARPL), leather +7.8(ARPL), metal_nut +10.2(UTL), pill +20.2(UTL), screw +18.4(UTL), tile -2.1(UTL), transistor +16.2(UTL), wood -2.9(ARPL), zipper +16.9(UTL)

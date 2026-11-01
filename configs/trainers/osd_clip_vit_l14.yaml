@@ -1,0 +1,41 @@
+# OSD-CLIP 기본 설정 (Alpha-CLIP ViT-L/14, 16-shot, 100 epoch, batch 16, 마지막 epoch 평가)
+DATALOADER:
+  TRAIN_X:
+    BATCH_SIZE: 16        # 결함 영역 16개 + 정상 영역 16개 / step
+  TEST:
+    BATCH_SIZE: 128
+  NUM_WORKERS: 8
+
+INPUT:
+  SIZE: (224, 224)
+  INTERPOLATION: "bicubic"
+  PIXEL_MEAN: [0.48145466, 0.4578275, 0.40821073]
+  PIXEL_STD: [0.26862954, 0.26130258, 0.27577711]
+  TRANSFORMS: ["normalize"]   # 증강 없음 (crop / 정규화는 trainers/data_wrapper.py 에서 수행)
+
+OPTIM:
+  NAME: "sgd"               # momentum 0.9, weight decay 5e-4 (Dassl 기본값)
+  LR: 0.002
+  MAX_EPOCH: 100
+  LR_SCHEDULER: "cosine"
+  WARMUP_EPOCH: 1
+  WARMUP_TYPE: "constant"
+  WARMUP_CONS_LR: 1e-5
+
+TRAIN:
+  PRINT_FREQ: 5
+
+MODEL:
+  BACKBONE:
+    NAME: "ViT-L/14"
+
+TRAINER:
+  OSDCLIP:
+    N_CTX: 16
+    NUM_NEG_PROMPTS: 30
+    LAMBDA: 5.0
+    TOPK: 20
+    T: 1.0
+    SOFTMASK_THRESHOLD: 0.9
+    OLS: 0.001
+    NORMAL_CROP_ROI_SIZE: 224

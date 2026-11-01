@@ -1,0 +1,6 @@
+DATASET:
+  NAME: "MVTecPKLOpenSet"
+  ROOT: "./data"
+  PKL_PATH: "./mvtec_ac_pkl/metal_nut_seed0_unknown_bent.pkl"   # train_eval.sh 가 설정마다 덮어씀
+  OBJECT_NAME: "metal nut"
+  FEW_SHOT_K: 16

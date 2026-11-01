@@ -1,0 +1,23 @@
+# 데이터, 사전계산 anomaly map, 체크포인트, 실험 산출물은 올리지 않는다 (results_summary/ 의 CSV 만 커밋)
+Dataset
+Dataset/
+alphaclip_softmask_method3_robust_0.5_blur
+alphaclip_softmask_method3_robust_0.5_blur/
+checkpoints/
+external/
+results/
+data/
+logs/
+error_log_all.txt
+logs_*.txt
+nohup.out
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# 모델 가중치
+*.pth
+*.pth.tar
+*.pth.tar-*

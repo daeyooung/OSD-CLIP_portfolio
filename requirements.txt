@@ -1,0 +1,21 @@
+# 검증 환경: Python 3.10 / torch 2.9.1+cu128 / torchvision 0.24.1+cu128
+# PyTorch 는 CUDA 버전에 맞게 https://pytorch.org 안내대로 먼저 설치한 뒤 아래를 설치한다.
+torch>=2.0
+torchvision>=0.15
+numpy>=1.24
+pandas
+scikit-learn
+scipy
+opencv-python
+Pillow
+yacs
+tqdm
+matplotlib
+seaborn
+tensorboard
+tabulate
+ftfy
+regex
+# 아래 두 개는 README '환경 설정' 참고 (저장소 안의 Dassl.pytorch, Alpha-CLIP)
+# pip install -e Dassl.pytorch
+# pip install git+https://github.com/SunzeY/AlphaCLIP.git

@@ -1,0 +1,4 @@
+shot,n_runs,Acc_Known_mean,Acc_Known_std,AUROC_mean,AUROC_std,OSCR_mean,OSCR_std
+1,192,69.57,4.51,68.10,1.29,51.27,2.43
+4,192,86.62,0.95,78.03,1.39,70.58,1.87
+16,192,91.04,0.33,82.16,0.90,77.31,0.89
