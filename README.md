@@ -1,9 +1,9 @@
 # OSD-CLIP: Anomaly-Aware Local Prompt Learning for Few-shot Open-Set Industrial Defect Recognition
 
 산업 결함 이미지에서 **학습한 결함 유형(known)은 분류하고, 학습에 없던 결함 유형(unknown)은 탐지**하는
-few-shot open-set 결함 인식 방법의 PyTorch 구현과 MVTec AD 실험 결과입니다.
+few-shot open-set 결함 인식 방법의 PyTorch 구현과 MVTec AC 실험 결과입니다.
 
-- **문제**: MVTec AD 14개 카테고리에서 결함 유형 하나를 unknown 으로 두고 나머지를 known 으로 학습하는 **64개 open-set 시나리오**.
+- **문제**: MVTec AC 14개 카테고리에서 결함 유형 하나를 unknown 으로 두고 나머지를 known 으로 학습하는 **64개 open-set 시나리오**.
   known 클래스당 1 / 4 / 16 장만 학습(few-shot)
 - **방법**: frozen Alpha-CLIP ViT-L/14 위에서 **프롬프트(context 토큰)만 학습**.
   PatchCore anomaly map(softmask)으로 결함 영역을 잘라 Alpha-CLIP 의 alpha 채널로 주고, 결함 패치는 known prompt 로,
@@ -11,7 +11,7 @@ few-shot open-set 결함 인식 방법의 PyTorch 구현과 MVTec AD 실험 결�
 - **재현성**: seed 고정(few-shot 샘플·프롬프트 초기화·정상 영역 샘플링), 모델 선택 없이 **마지막 epoch 프롬프트로 평가**,
   모든 하이퍼파라미터는 [`configs/`](configs) 와 [`train_eval.sh`](train_eval.sh) 에 고정
 
-## 결과 (MVTec AD, 64 시나리오 × seed 0/1/2 = 192 run, 평균 ± seed 표준편차)
+## 결과 (MVTec AC, 64 시나리오 × seed 0/1/2 = 192 run, 평균 ± seed 표준편차)
 
 | shot | Acc_Known | AUROC | OSCR |
 |:---:|:---:|:---:|:---:|
@@ -65,7 +65,7 @@ Acc_Known = known 결함 분류 정확도, AUROC = known/unknown 구분, OSCR = 
 
 ## 환경 설정
 
-검증 환경: Python 3.10, PyTorch 2.9.1 (CUDA 12.8), NVIDIA GPU 1장.
+검증 환경: Python 3.10, PyTorch 2.9.1 (CUDA 12.8).
 
 ```bash
 pip install -r requirements.txt           # PyTorch 는 CUDA 버전에 맞게 먼저 설치
@@ -80,10 +80,10 @@ mkdir -p checkpoints && mv clip_l14_grit20m_fultune_2xe.pth checkpoints/
 
 저장소 루트에 아래 두 가지를 둡니다 (심볼릭 링크 가능). 용량 문제로 저장소에는 포함하지 않았습니다.
 
-1. **MVTec AD** ([공식 페이지](https://www.mvtec.com/company/research/datasets/mvtec-ad)) → `Dataset/mvtec_ac/<category>/test/<class>/*.png`
+1. **MVTec AC** ([공식 페이지](https://www.mvtec.com/company/research/datasets/mvtec-ad)) → `Dataset/mvtec_ac/<category>/test/<class>/*.png`
    (`mvtec_ac_pkl/` 의 분할 파일이 이 경로를 참조)
 2. **softmask** (PatchCore anomaly map, `.npy` 0~1) → `alphaclip_softmask_method3_robust_0.5_blur/alphaclip_masks_method3_robust_blur_ac_<category>/<class>/softmask/<image>.npy`
-   사전 계산본(약 670MB): **(링크 추가 예정)**. 직접 만들려면 MVTec AD 원본의 `train/good` 과
+   사전 계산본(약 670MB): **(링크 추가 예정)**. 직접 만들려면 MVTec AC 원본의 `train/good` 과
    [patchcore-inspection](https://github.com/amazon-science/patchcore-inspection) 이 필요합니다.
 
    ```bash
@@ -99,10 +99,10 @@ python check_setup.py      # 패키지 / GPU / 데이터 / softmask / 체크포�
 ## 실행
 
 ```bash
-# 동작 확인: 시나리오 1개 학습 + 평가 (GPU 1장 약 15분)
+# 동작 확인: 시나리오 1개 학습 + 평가
 PKL_FILTER=carpet_seed0_unknown_color bash train_eval.sh
 
-# 64개 시나리오, seed 0 (약 16시간). 논문 설정은 SEEDS="0 1 2"
+# 64개 시나리오, seed 0. 논문 설정은 SEEDS="0 1 2"
 bash train_eval.sh
 
 # 결과 집계만 다시
